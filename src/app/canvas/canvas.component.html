@@ -1,0 +1,29 @@
+<div class="flex flex-col justify-center items-center h-screen">
+    
+    <div class="flex mb-4 gap-2">
+        <button class="bg-[#000000] w-4 h-4 border shadow" (click)="onColorSelected('#000000')"></button>
+
+        <button class="bg-[#FF0000] w-4 h-4 border shadow" (click)="onColorSelected('#FF0000')"></button>
+
+        <button class="bg-[#FFCC00] w-4 h-4 border shadow" (click)="onColorSelected('#FFCC00')"></button>
+    </div>
+
+    @if(canvas) {
+        <div class="grid" [style.grid-template-columns]="'repeat(' + canvas!['width'] + ', 12px)'">
+            @for (row of pixels; track $index) {
+            <div [style.grid-template-rows]="'repeat(' + canvas!['height'] + ', 12px)'">
+                @for (pixel of row; track pixel.id) {
+                    <div 
+                        class="border hover:!bg-sky-100" 
+                        style="width: 12px; height: 12px"
+                        [style.background-color]="pixel['color']"
+                        (click)="onPixelClicked(pixel)"
+                    ></div>
+                }
+            </div>
+            } @empty {
+                <h2>Loading</h2>
+            }
+        </div>
+    }
+</div>

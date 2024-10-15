@@ -1,0 +1,11 @@
+<div class="flex flex-col justify-center items-center h-screen">
+    <div class="flex mb-4 gap-2">
+        <button class="bg-[#000000] w-4 h-4 border shadow" (click)="onColorSelected('#000000')"></button>
+
+        <button class="bg-[#FF0000] w-4 h-4 border shadow" (click)="onColorSelected('#FF0000')"></button>
+
+        <button class="bg-[#FFCC00] w-4 h-4 border shadow" (click)="onColorSelected('#FFCC00')"></button>
+    </div>
+
+    <canvas #canvas class="border" (mousedown)="onPixelClicked($event)"></canvas>
+</div>
